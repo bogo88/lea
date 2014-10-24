@@ -4,8 +4,12 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 
-from main.models import Meal
+from main.models import Meal, Rating
 
 class IndexView(generic.ListView):
     template_name = 'main/index.html'
     model = Meal
+
+class RatingView(generic.ListView):
+    template_name = 'main/rating.html'
+    model = Rating
