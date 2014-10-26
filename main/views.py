@@ -10,6 +10,16 @@ class IndexView(generic.ListView):
     template_name = 'main/index.html'
     model = Meal
 
-class RatingView(generic.ListView):
-    template_name = 'main/rating.html'
-    model = Rating
+class MealView(generic.ListView):
+    template_name = 'main/meal.html'
+    model = Meal
+
+def rating(request, meal_id):
+    meal = get_object_or_404(Meal, pk=meal_id)
+    rating = Rating.objects.get(meal=meal_id)
+    return render(request, 'main/rating.html', {'meal': meal,'stars':range(0,rating.value)})
+
+def rate(request, meal_id):
+    meal = get_object_or_404(Meal, pk=meal_id)
+
+    return render(request,'main/rate.html',{'meal':meal})

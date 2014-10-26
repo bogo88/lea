@@ -6,3 +6,15 @@ body
 {
 padding: 5px;
 }
+.float-left
+{
+float:left
+}
+.float-right
+{
+float:right
+}
+.center-align
+{
+text-align: center
+}
