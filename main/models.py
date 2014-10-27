@@ -1,17 +1,20 @@
 from django.db import models
 
+
 class Meal(models.Model):
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.CharField(max_length=1000)
     
     def __unicode__(self):
-	return self.name
+        return self.name
+
 
 class User(models.Model):
     email = models.CharField(max_length=200)
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
+
 
 class Rating(models.Model):
     meal = models.ForeignKey(Meal)
@@ -20,4 +23,4 @@ class Rating(models.Model):
     comment = models.CharField(max_length=500)
 
     def stars(self):
-	return range(0,self.value)
+        return range(0,self.value)
