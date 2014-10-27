@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
+from main.forms import RateForm
 
 from main.models import Meal, Rating
 
@@ -28,5 +29,5 @@ def rating(request, meal_id):
 
 def rate(request, meal_id):
     meal = get_object_or_404(Meal, pk=meal_id)
-
-    return render(request,'main/rate.html',{'meal':meal})
+    form = RateForm()
+    return render(request,'main/rate.html',{'meal': meal,'form': form})
