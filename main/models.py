@@ -18,3 +18,6 @@ class Rating(models.Model):
     user = models.ForeignKey(User)
     value = models.IntegerField()
     comment = models.CharField(max_length=500)
+
+    def stars(self):
+	return range(0,self.value)

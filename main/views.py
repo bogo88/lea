@@ -10,14 +10,18 @@ class IndexView(generic.ListView):
     template_name = 'main/index.html'
     model = Meal
 
-class MealView(generic.ListView):
-    template_name = 'main/meal.html'
+class MealsView(generic.ListView):
+    template_name = 'main/meals.html'
     model = Meal
 
 def rating(request, meal_id):
     meal = get_object_or_404(Meal, pk=meal_id)
-    rating = Rating.objects.get(meal=meal_id)
-    return render(request, 'main/rating.html', {'meal': meal,'stars':range(0,rating.value)})
+    try:
+	rating = Rating.objects.filter(meal=meal_id)
+	return render(request, 'main/rating.html', {'meal': meal,'ratings':rating})
+    except Rating.DoesNotExist:
+	rating = None
+	return render(request,'main/rating.html',{'meal': meal})
 
 def rate(request, meal_id):
     meal = get_object_or_404(Meal, pk=meal_id)

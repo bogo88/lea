@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title%}Ratings{% endblock %}
+
+{%block content %}
+    {% if ratings %}
+	{% for rating in ratings %}
+	<div class="media">
+	 <a class="pull-left" href="#">
+	  <img class="media-object" >
+	  <a>{{rating.user.username}}</a>
+	 </a>
+	 <div class="media-body">
+	  <h4 class="media-heading">{% for star in rating.stars %}<i class="fa fa-star"></i>{% endfor %}</h4>
+	  {{rating.comment}}
+	 </div>
+	</div>
+	{% endfor %}
+    {% else %}
+    <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> There is no ratings yet</div>
+    {% endif %}
+{% endblock %}
