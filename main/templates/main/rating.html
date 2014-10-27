@@ -1,9 +1,19 @@
 {% extends 'main/base.html' %}
 
-{% block title%}Ratings{% endblock %}
+{% block title%}Ratings for {{meal.name}}{% endblock %}
 
 {%block content %}
+<div class="page-header">
+  <h1>{{meal.name}} <small>${{meal.price|floatformat:2}}</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{meal.description}}
+  </div>
+  <div class="panel-footer"><a href="{% url 'main:rate' meal.id %}" >Rate {{meal.name}}</a></div>
+</div>
     {% if ratings %}
+    <h4>Comments</h4>
 	{% for rating in ratings %}
 	<div class="media">
 	 <a class="pull-left" href="#">

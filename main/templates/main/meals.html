@@ -6,7 +6,7 @@
     {% if all_meals %}
 	<div class="list-group">
 	{% for meal in all_meals %}
-	    <a href="{% url 'main:rating' meal.id  %}" class="list-group-item">{{meal.name}}  <span class="badge"><i class="fa fa-btc"></i> {{meal.price|floatformat:2}}</span></a>
+	    <a href="{% url 'main:rating' meal.id  %}" class="list-group-item">{{meal.name}}  <span class="badge">${{meal.price|floatformat:2}}</span></a>
 	{% endfor %}
 	</div>
     {% else %}
