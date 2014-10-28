@@ -5,6 +5,16 @@
 {%block content %}
 <div class="page-header">
   <h1>{{meal.name}} <small>${{meal.price|floatformat:2}}</small></h1>
+  {% if avg_stars %}
+    <h2>
+        {% for star in avg_stars %}
+        <i title="{{avg_rating.value__avg|floatformat:1}}" class="fa fa-star rating-star"></i>
+        {% endfor %}
+        {% if half_star >= 0.5 %}
+        <i title="{{avg_rating.value__avg|floatformat:1}}" class="fa fa-star-half rating-star"></i>
+        {% endif %}
+    </h2>
+  {% endif %}
 </div>
 <div class="panel panel-default">
   <div class="panel-body">
@@ -21,8 +31,9 @@
 	  <a>{{rating.user.username}}</a>
 	 </a>
 	 <div class="media-body">
-	  <h4 class="media-heading">{% for star in rating.stars %}<i class="fa fa-star"></i>{% endfor %}</h4>
+	  <h4 class="media-heading">{% for star in rating.stars %}<i class="fa fa-star rating-star"></i>{% endfor %}</h4>
 	  {{rating.comment}}
+      <p class="text-muted"><small>{{rating.rate_date|date:"D, d-m-Y, H:i:s"}}</small></p>
 	 </div>
 	</div>
 	{% endfor %}

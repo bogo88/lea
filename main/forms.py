@@ -3,5 +3,10 @@ from django import forms
 
 
 class RateForm(forms.Form):
-    value = forms.IntegerField(label='Value')
-    comment = forms.CharField(label='Comment',max_length=500)
+    value = forms.IntegerField()
+    comment = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Username'}), label="")
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder': 'Password'}), label="")

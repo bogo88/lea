@@ -4,17 +4,54 @@ body
 }
 #menu
 {
-padding: 5px;
+    padding: 5px;
+    float:left;
 }
 .float-left
 {
-float:left
+    float:left
 }
 .float-right
 {
-float:right
+    float:right
 }
 .center-align
 {
-text-align: center
+    text-align: center
+}
+.rating-star
+{
+    text-shadow: 0 0 2px #000;
+    color: yellow;
+}
+.form-group .fa-star
+{
+    font-size: 30px;
+    text-shadow: 0 0 2px #000;
+    color: #FFF;
+    cursor: pointer;
+}
+.live-star, .star:hover
+{
+    text-shadow: 0 0 4px red !important;
+}
+.live-star, .live-star-clicked
+{
+    color: yellow !important;
+}
+#user_menu
+{
+    padding-top:10px;
+    float:right;
+    width:50%;
+}
+#user_menu input[type="text"],
+#user_menu input[type="password"]
+{
+    width: 40% !important;
+    float:left;
+}
+#user_menu input
+{
+    margin-left:5px;
 }
