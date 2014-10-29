@@ -29,5 +29,11 @@
             <input class="btn btn-default" type="submit" value="Log in" />
         </div>
         </form>
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            You don't have account? <a href="{% url 'main:register' %}">Sign up here!</a>
+          </div>
+        </div>
     {% endif %}
 {% endblock %}

@@ -1,12 +1,13 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
-from main.forms import RateForm, LoginForm
+from main.forms import RateForm, LoginForm, RegisterForm
 from datetime import datetime
 from django.db.models import Avg
 from django.contrib import messages
 from main.models import Meal, Rating, User
 from django.contrib.auth import authenticate, login, logout
 from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib.auth.forms import UserCreationForm
 
 
 class IndexView(generic.ListView):
@@ -19,6 +20,23 @@ class MealsView(generic.ListView):
     model = Meal
 
 
+def register(request):
+    form = RegisterForm(request.POST)
+    if request.POST:
+        if form.is_valid():
+            form.save()
+            new_user = authenticate(username=request.POST['username'],
+                                    password=request.POST['password1'])
+            login(request, new_user)
+            messages.success(request, 'Welcome %s, your account has been created. '
+                                      'You are logged in now.' %(request.POST['username']))
+            return redirect('main:index')
+        else:
+            for err in form.errors:
+                messages.warning(request, form.errors[err])
+    return render(request, 'main/register.html', {'form': form})
+
+
 def profile(request):
     form = LoginForm()
     if request.POST:
@@ -28,7 +46,7 @@ def profile(request):
             log_out = False
         if log_out:
             logout(request)
-            messages.success(request, 'Loged out')
+            messages.success(request, 'Logged out')
             return redirect('main:index')
         username = request.POST['username']
         password = request.POST['password']

@@ -7,6 +7,7 @@ urlpatterns = patterns('',
                        url(r'^rating/(?P<meal_id>[0-9]+)',views.rating, name='rating'),
                        url(r'^rate/(?P<meal_id>[0-9]+)',views.rate, name='rate'),
                        url(r'^profile',views.profile, name='profile'),
+                       url(r'^register',views.register, name='register'),
                        url(r'^meals',views.MealsView.as_view(
                            model = Meal,
                            context_object_name="all_meals",

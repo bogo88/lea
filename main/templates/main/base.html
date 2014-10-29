@@ -30,9 +30,9 @@
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div id="menu">
 	<ul class="nav nav-pills">
-	    <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
-	    <li ><a href="{% url 'main:meals' %}">Meals</a></li>
-	    <li><a href="{% url 'main:profile' %}">Profile</a></li>
+	    <li class="menu-btn"><a href="{% url 'main:index' %}">Home</a></li>
+	    <li class="menu-btn" ><a href="{% url 'main:meals' %}">Meals</a></li>
+	    <li class="menu-btn"><a href="{% url 'main:profile' %}">Profile</a></li>
 	</ul>
 	</div>
      {% if user.is_authenticated %}

@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Sign up!{% endblock %}
+
+{% block content %}
+        <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            {{form.username}}
+        </div>
+        <div class="form-group">
+            <label for="password1">Password</label>
+            {{form.password1}}
+        </div>
+        <div class="form-group">
+            <label for="password2">Repeat password</label>
+            {{form.password2}}
+        </div>
+        <div class="form-group">
+            <input class="btn btn-default" type="submit" value="Sign up" />
+        </div>
+        </form>
+{% endblock %}
