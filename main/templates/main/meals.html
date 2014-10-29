@@ -1,8 +1,12 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Meal{% endblock %}
+{% block title %}Meals{% endblock %}
 
 {% block content %}
+    <div class="page-header">
+      <h1>List of meals</h1>
+    </div>
+    <p><a href="{% url 'main:new_meal' %}" class="btn btn-success" role="button">Add meal <i class="fa fa-plus-square"></i></a></p>
     {% if all_meals %}
 	<div class="list-group">
 	{% for meal in all_meals %}

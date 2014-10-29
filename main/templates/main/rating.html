@@ -20,8 +20,8 @@
   <div class="panel-body">
     {{meal.description}}
   </div>
-  <div class="panel-footer"><a href="{% url 'main:rate' meal.id %}" >Rate {{meal.name}}</a></div>
 </div>
+  <p><a href="{% url 'main:rate' meal.id %}" class="btn btn-success">Rate {{meal.name}} <i class="fa fa-star"></i></a></p>
     {% if ratings %}
     <h4>Comments</h4>
 	{% for rating in ratings %}

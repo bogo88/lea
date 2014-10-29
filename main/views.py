@@ -1,13 +1,12 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
-from main.forms import RateForm, LoginForm, RegisterForm
+from main.forms import RateForm, LoginForm, RegisterForm, MealForm
 from datetime import datetime
 from django.db.models import Avg
 from django.contrib import messages
 from main.models import Meal, Rating, User
 from django.contrib.auth import authenticate, login, logout
 from django.utils.datastructures import MultiValueDictKeyError
-from django.contrib.auth.forms import UserCreationForm
 
 
 class IndexView(generic.ListView):
@@ -18,6 +17,20 @@ class IndexView(generic.ListView):
 class MealsView(generic.ListView):
     template_name = 'main/meals.html'
     model = Meal
+
+
+def new_meal(request):
+    form = MealForm()
+    model = Meal()
+    if request.POST:
+        model.name = request.POST['name']
+        model.price = request.POST['price']
+        model.description = request.POST['description']
+        model.save()
+        messages.success(request, '%s added' %(request.POST['name']))
+        return redirect('main:meals')
+    return render(request, 'main/new-meal.html', {'form': form})
+
 
 
 def register(request):
