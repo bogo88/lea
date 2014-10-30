@@ -70,8 +70,14 @@ WSGI_APPLICATION = 'lea.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8s9skivp6unku',
+        'USER': 'ieftiggokvcalv',
+        'PASSWORD': 'I3xrQDYYNi6GA79oYkC8KzDin6',
+        'HOST': 'ec2-54-204-40-96.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
