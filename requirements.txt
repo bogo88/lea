@@ -1,5 +1,4 @@
 Django==1.6.5
-django
 django-secure
 django-model-utils
 psycopg2
