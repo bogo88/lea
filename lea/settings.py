@@ -98,4 +98,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'main/static/main')
-STATIC_URL = '/static/'
+STATIC_URL = 'https://lunea.herokuapp.com/static/'
