@@ -1,1 +1,1 @@
-web:python app/manage.py collectstatic --noinput; gunicorn lea.wsgi --log-file -
+web:python app/lunea/manage.py collectstatic --noinput; gunicorn lea.wsgi --log-file -
