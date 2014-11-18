@@ -27,7 +27,7 @@
         <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}" role="alert">{{message}}</div>
         {% endfor %}
     {% endif %}
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-default" role="navigation">
     <a class="navbar-brand" href="{% url 'main:index' %}">Lunch Evaluation Application</a>
 	<div id="menu">
 	<ul class="nav nav-pills">
